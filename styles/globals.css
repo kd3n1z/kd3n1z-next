@@ -110,7 +110,11 @@ a:active {
     justify-content: space-between;
     flex-wrap: wrap;
     column-gap: 10px;
-    max-width: 410px;
+    max-width: 450px;
+}
+
+.content.app {
+    font-size: 1.25em;
 }
 
 .nowrap {
