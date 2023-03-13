@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --body-color: #161616;
+    --alpha-lighter: #ffffff16;
+    --color: white;
+    --menu-width: 350px;
+    --cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --ease: ease-in-out;
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--color);
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a:active {
+    opacity: 0.5;
+}
+
+.page {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    min-width: var(--menu-width);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--alpha-lighter);
+    backdrop-filter: blur(10px);
+    transition: var(--cubic) .5s;
+    border-left: 1px solid var(--alpha-lighter);
+    z-index: 100;
+}
+
+.menu.hidden {
+    visibility: collapse;
+    opacity: 0;
+    transform: translate(100%, 0);
+}
+
+.menu>a {
+    text-decoration: none;
+    padding: 20px;
+    text-align: right;
+    transition: var(--ease) .2s;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    letter-spacing: 8px;
+}
+
+.menu>a:hover {
+    background-color: var(--alpha-lighter);
+}
+
+.menuCloser {
+    font-size: 32px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: var(--cubic) .5s;
+    cursor: pointer;
+}
+
+.menuCloser.rotated {
+    transform: rotate(-360deg);
+}
+
+.menuBlur {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #00000016;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    transition: var(--cubic) .5s;
+}
+
+.menuBlur.hidden {
+    opacity: 0;
+    visibility: collapse;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    font-size: 2em;
+    font-weight: 600;
+    justify-content: space-between;
+}
+
+.desc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    max-width: 410px;
+}
+
+.nowrap {
+    flex-wrap: nowrap !important;
+}
+
+.avatarWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.avatar {
+    width: 125px;
+    height: 125px;
+}
+
+.row {
+    width: 80vw;
+    height: 125px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    max-width: 450px;
+}
+
+.row>div {
+    height: 100%;
+}
+
+.logo {
+    line-height: 1;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 5px;
+    flex-grow: 1;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.links>.icon {
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.links>* {
+    transition: var(--ease) .2s;
+}
+
+.links.appInfo>* {
+    font-size: 0.8em;
+    opacity: 0.5;
+}
+
+.links.appInfo>*:active {
+    opacity: 0.25;
+}
+
+.avatar {
+    width: 125px;
+    height: 125px;
+    background-image: url('https://avatars.githubusercontent.com/u/44139611?s=400&u=985eb09e8de861fe68e846d39167930a66188423&v=4');
+    background-size: 100% 100%;
+    border-radius: 25%;
+}
+
+.word, .letter {
+    transition: var(--cubic) .5s;
+}
+
+.word:hover {
+    transform: scale(1.1);
+}
+
+.letter:hover {
+    transform: rotateY(180deg);
+}
+
+.download {
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--color);
+    color: var(--body-color);
+    transition: var(--ease) .2s;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.app>* {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.links.appInfo {
+    justify-content: center;
+    margin-top: 0px;
+}
+
+
+@media screen and (max-width: 550px) {
+    .avatar {
+        display: none;
+    }
+
+    .row {
+        max-width: 350px;
+    }
+
+    .menu {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .optional {
+        display: none;
+    }
+}
