@@ -23,7 +23,7 @@ const Page: NextPage<Props> = function ({ data, rdata, qname }) {
                 if(ext && ext.length == 3) {
                     cExt = ' .' + ext.toUpperCase();
                 }
-                if(asset.name.endsWith('.exe') || asset.name == 'windows-x64.zip') {
+                if(asset.name.endsWith('.exe') || asset.name.toLowerCase() == 'windows-x64.zip') {
                     break;
                 }
             }
@@ -52,7 +52,7 @@ const Page: NextPage<Props> = function ({ data, rdata, qname }) {
                                     })
                                 }
                             </div>
-                            <a className="download" href={downloadLink}>Download {extension} ({rdata.name.toLowerCase()})</a>
+                            <a className="download" href={downloadLink}>Download {extension} <span className="nowrap">({rdata.name.toLowerCase()})</span></a>
                             <div className="links appInfo">
                                 <a href={'https://github.com/KD3n1z/' + data.name + '/releases'}>releases</a>
                                 <span>&nbsp;/&nbsp;</span>

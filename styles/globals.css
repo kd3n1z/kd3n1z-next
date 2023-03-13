@@ -119,6 +119,7 @@ a:active {
 
 .nowrap {
     flex-wrap: nowrap !important;
+    white-space: nowrap;
 }
 
 .avatarWrapper {
@@ -210,6 +211,7 @@ a:active {
     border-radius: 10px;
     box-sizing: border-box;
     padding: 10px;
+    font-weight: 500;
 }
 
 .app>* {
