@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { ICategory, IPage } from "./Menu";
 import Link from "next/link";
 
-export default function MenuCategory(props: { category: ICategory, openedCategory: string, openCategory: Dispatch<SetStateAction<string>>, closeMenu: () => any }) {
+export default function MenuCategory(props: { category: ICategory, openedCategory: string, openCategory: Dispatch<SetStateAction<string>>, closeMenu: (opened: boolean) => any }) {
     const isOpened = props.openedCategory == props.category.name;
 
     return (
@@ -14,7 +14,7 @@ export default function MenuCategory(props: { category: ICategory, openedCategor
             <div className={"category" + (!isOpened ? " hidden" : "")}>
                 <div>
                     {props.category.pages.map((page: IPage) => {
-                        const clickHandler = () => { props.closeMenu() };
+                        const clickHandler = () => { props.closeMenu(false) };
 
                         if (page.type == "github_repo") {
                             return <Link

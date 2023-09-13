@@ -31,7 +31,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   
     return (
         <>
-            <Menu opened={menuOpened} setOpened={setMenuOpened}/>
+            <Menu opened={menuOpened} setOpenState={setMenuOpened}/>
             <AnimatePresence mode='wait' initial={false}>
                 {loading ? '' : <Component {...pageProps} key={router.asPath}/>}
             </AnimatePresence>

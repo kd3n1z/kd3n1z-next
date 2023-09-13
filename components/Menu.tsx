@@ -23,13 +23,16 @@ interface Props {
     repos?: any,
 }
 
-export default function Menu(props: { opened: boolean, setOpened: React.Dispatch<React.SetStateAction<boolean>> }) {
+export default function Menu(props: { opened: boolean, setOpenState: React.Dispatch<React.SetStateAction<boolean>> }) {
     const [repos, setRepos] = useState<IDataDocument | null>(null);
     const [openedCategory, setCategory] = useState<string>("");
 
-    const closeMenu = () => {
-        props.setOpened(false);
-        setCategory("");
+    const setOpened = (opened: boolean) => {
+        props.setOpenState(opened);
+
+        if(!opened) {
+            setCategory("");
+        }
     }
 
     useEffect(() => {
@@ -40,13 +43,13 @@ export default function Menu(props: { opened: boolean, setOpened: React.Dispatch
 
     return (
         <>
-            <MenuCloseButton rotated={props.opened} setOpened={props.setOpened} action={true} icon="fa-solid fa-bars" />
-            <div className={'menuBlur' + (props.opened ? '' : ' hidden')} onClick={() => { props.setOpened(false) }} />
+            <MenuCloseButton rotated={props.opened} setOpened={setOpened} action={true} icon="fa-solid fa-bars" />
+            <div className={'menuBlur' + (props.opened ? '' : ' hidden')} onClick={() => { setOpened(false) }} />
             <div className={'menu' + (props.opened ? '' : ' hidden')}>
-                <MenuCloseButton rotated={props.opened} setOpened={props.setOpened} action={false} icon="fa-solid fa-xmark" />
-                <Link href='/' className="menuButton" onClick={() => { props.setOpened(false) }}>Home</Link>
+                <MenuCloseButton rotated={props.opened} setOpened={props.setOpenState} action={false} icon="fa-solid fa-xmark" />
+                <Link href='/' className="menuButton" onClick={() => { props.setOpenState(false) }}>Home</Link>
                 {repos?.categories.map((category: ICategory) => {
-                    return (<MenuCategory category={category} closeMenu={closeMenu} openedCategory={openedCategory} openCategory={setCategory} />);
+                    return (<MenuCategory category={category} closeMenu={setOpened} openedCategory={openedCategory} openCategory={setCategory} />);
                 })}
             </div>
         </>
