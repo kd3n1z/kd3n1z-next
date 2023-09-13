@@ -1,0 +1,36 @@
+{
+    "categories": [
+        {
+            "name": "Apps",
+            "pages": [
+                {
+                    "type": "github_repo",
+                    "name": "ProcessInfo"
+                },
+                {
+                    "type": "github_repo",
+                    "name": "Cordova-Calc"
+                }
+            ]
+        },
+        {
+            "name": "Tools",
+            "pages": [
+                {
+                    "type": "github_repo",
+                    "name": "gitwatcher"
+                }
+            ]
+        },
+        {
+            "name": "Bots",
+            "pages": [
+                {
+                    "type": "link",
+                    "name": "flibusta-downloader",
+                    "link": "https://t.me/flibustadownloadbot"
+                }
+            ]
+        }
+    ]
+}

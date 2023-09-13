@@ -14,16 +14,16 @@ const Page: NextPage<Props> = function ({ data, rdata, qname }) {
     const [extension, setExtension] = useState<string>('');
 
     useEffect(() => {
-        if(data && rdata) {
+        if (data && rdata) {
             let dl = '#';
             let cExt = '';
-            for(let asset of rdata.assets) {
+            for (let asset of rdata.assets) {
                 dl = asset.browser_download_url;
                 let ext = asset.name.split('.').slice(-1)[0];
-                if(ext && ext.length == 3) {
+                if (ext && ext.length == 3) {
                     cExt = ' .' + ext.toUpperCase();
                 }
-                if(asset.name.endsWith('.exe') || asset.name.toLowerCase() == 'windows-x64.zip') {
+                if (asset.name.endsWith('.exe') || asset.name.toLowerCase() == 'windows-x64.zip') {
                     break;
                 }
             }
@@ -35,7 +35,7 @@ const Page: NextPage<Props> = function ({ data, rdata, qname }) {
     return (
         <Layout title={qname}>
             <div className='content app'>
-                {data == null ? "App not found! (maybe you're making too many requests?)" : 
+                {data == null ? "App not found! (maybe you're making too many requests?)" :
                     (
                         <>
                             <div className="logo">
@@ -71,19 +71,19 @@ const Page: NextPage<Props> = function ({ data, rdata, qname }) {
 Page.getInitialProps = async ({ query }) => {
     let headers = undefined;
 
-    if(process?.env?.GITHUB_TOKEN) {
+    if (process?.env?.GITHUB_TOKEN) {
         //server-side
         headers = {
             "Authorization": "Bearer " + process.env.GITHUB_TOKEN
         };
     }
 
-    const resp = await fetch('https://api.github.com/repos/KD3n1z/' + query.name, {headers: headers});
+    const resp = await fetch('https://api.github.com/repos/KD3n1z/' + query.name, { headers: headers });
 
-    if(resp.ok) {
-        const releaseResp = await fetch('https://api.github.com/repos/KD3n1z/' + query.name + '/releases/latest', {headers: headers});
+    if (resp.ok) {
+        const releaseResp = await fetch('https://api.github.com/repos/KD3n1z/' + query.name + '/releases/latest', { headers: headers });
 
-        if(releaseResp.ok) {
+        if (releaseResp.ok) {
             const data = await resp.json();
             const rdata = await releaseResp.json();
             return { data, rdata, qname: query.name as string | undefined };

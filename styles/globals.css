@@ -43,7 +43,7 @@ a:active {
     justify-content: center;
     background-color: var(--alpha-lighter);
     backdrop-filter: blur(10px);
-    transition: var(--cubic) .5s;
+    transition: var(--cubic) 0.5s;
     border-left: 1px solid var(--alpha-lighter);
     z-index: 100;
 }
@@ -54,17 +54,18 @@ a:active {
     transform: translate(100%, 0);
 }
 
-.menu>a {
+.menuButton {
     text-decoration: none;
     padding: 20px;
     text-align: right;
-    transition: var(--ease) .2s;
+    transition: var(--ease) 0.2s;
     text-transform: uppercase;
     font-size: 1.2em;
-    letter-spacing: 8px;
+    letter-spacing: 4px;
+    cursor: pointer;
 }
 
-.menu>a:hover {
+.menuButton:hover {
     background-color: var(--alpha-lighter);
 }
 
@@ -73,11 +74,14 @@ a:active {
     position: absolute;
     top: 20px;
     right: 20px;
-    transition: var(--cubic) .5s;
     cursor: pointer;
 }
 
-.menuCloser.rotated {
+.rotatable {
+    transition: var(--cubic) 0.5s;
+}
+
+.rotated {
     transform: rotate(-360deg);
 }
 
@@ -88,7 +92,7 @@ a:active {
     background-color: #00000016;
     z-index: 50;
     backdrop-filter: blur(10px);
-    transition: var(--cubic) .5s;
+    transition: var(--cubic) 0.5s;
 }
 
 .menuBlur.hidden {
@@ -141,7 +145,7 @@ a:active {
     max-width: 450px;
 }
 
-.row>div {
+.row > div {
     height: 100%;
 }
 
@@ -163,21 +167,21 @@ a:active {
     justify-content: space-between;
 }
 
-.links>.icon {
+.links > .icon {
     font-size: 1.5em;
     text-decoration: none;
 }
 
-.links>* {
-    transition: var(--ease) .2s;
+.links > * {
+    transition: var(--ease) 0.2s;
 }
 
-.links.appInfo>* {
+.links.appInfo > * {
     font-size: 0.8em;
     opacity: 0.5;
 }
 
-.links.appInfo>*:active {
+.links.appInfo > *:active {
     opacity: 0.25;
 }
 
@@ -189,8 +193,9 @@ a:active {
     border-radius: 25%;
 }
 
-.word, .letter {
-    transition: var(--cubic) .5s;
+.word,
+.letter {
+    transition: var(--cubic) 0.5s;
 }
 
 .word:hover {
@@ -207,14 +212,14 @@ a:active {
     text-decoration: none;
     background-color: var(--color);
     color: var(--body-color);
-    transition: var(--ease) .2s;
+    transition: var(--ease) 0.2s;
     border-radius: 10px;
     box-sizing: border-box;
     padding: 10px;
     font-weight: 500;
 }
 
-.app>* {
+.app > * {
     margin-top: 2px;
     margin-bottom: 2px;
 }
@@ -224,6 +229,23 @@ a:active {
     margin-top: 0px;
 }
 
+.category {
+    transition: var(--cubic) 0.5s;
+    overflow: hidden;
+    max-height: 500px;
+}
+
+.category.hidden {
+    max-height: 0px;
+    opacity: 0;
+    visibility: collapse;
+    transform: translate(100%, 0px);
+}
+
+.category > * {
+    display: flex;
+    flex-direction: column;
+}
 
 @media screen and (max-width: 550px) {
     .avatar {
@@ -238,7 +260,6 @@ a:active {
         width: 100%;
     }
 }
-
 
 @media screen and (max-width: 700px) {
     .optional {
