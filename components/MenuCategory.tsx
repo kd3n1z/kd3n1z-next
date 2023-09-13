@@ -8,12 +8,25 @@ export default function MenuCategory(props: { category: ICategory, openedCategor
     return (
         <>
             <div className="menuButton" onClick={() => { props.openCategory(isOpened ? "" : props.category.name) }}>
-                <i className={"fa-solid rotatable " + (isOpened ? "fa-chevron-down rotated" : "fa-minus")}></i>&nbsp;
+                <i className={"fa-solid expandIcon rotatable " + (isOpened ? "fa-chevron-down rotated" : "fa-minus")}></i>&nbsp;
                 {props.category.name}
             </div>
             <div className={"category" + (!isOpened ? " hidden" : "")}>
                 <div>
                     {props.category.pages.map((page: IPage) => {
+                        if(page.icon) {
+                            console.log(page.icon);
+                        }
+
+                        const innerElement: JSX.Element = (
+                            <>
+                                {page.icon ? <div className="icon" style={{ backgroundImage: 'url("' + page.icon + '")' }} /> : <span />}
+                                <span>
+                                    {page.name}
+                                </span>
+                            </>
+                        );
+
                         const clickHandler = () => { props.closeMenu(false) };
 
                         if (page.type == "github_repo") {
@@ -22,16 +35,17 @@ export default function MenuCategory(props: { category: ICategory, openedCategor
                                 className="menuButton"
                                 href={'/app/' + page.name}
                                 onClick={clickHandler}>
-                                {page.name}
+                                {innerElement}
                             </Link>;
                         }
 
                         return <a
+                            key={page.name}
                             className="menuButton"
                             href={page.link}
                             target="_blank"
                             onClick={clickHandler}>
-                            {page.name}
+                            {innerElement}
                         </a>;
                     })}
                 </div>

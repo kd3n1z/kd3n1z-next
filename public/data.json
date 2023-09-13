@@ -5,11 +5,13 @@
             "pages": [
                 {
                     "type": "github_repo",
-                    "name": "ProcessInfo"
+                    "name": "ProcessInfo",
+                    "icon": "https://raw.githubusercontent.com/kd3n1z/ProcessInfo/main/Images/Pi-Letter.png"
                 },
                 {
                     "type": "github_repo",
-                    "name": "Cordova-Calc"
+                    "name": "Cordova-Calc",
+                    "icon": "https://raw.githubusercontent.com/kd3n1z/cordova-calc/master/www/imgs/icon.png"
                 }
             ]
         },

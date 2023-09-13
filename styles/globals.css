@@ -56,18 +56,30 @@ a:active {
 }
 
 .menuButton {
+    display: flex;
     text-decoration: none;
-    padding: 20px;
+    padding: 0px 20px 0px 20px;
     text-align: right;
     transition: var(--ease) 0.2s;
     text-transform: uppercase;
     font-size: 1.2em;
     letter-spacing: 4px;
     cursor: pointer;
+    min-height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .menuButton:hover {
     background-color: var(--alpha-lighter);
+}
+
+.menuButton > .icon {
+    width: 40px;
+    height: 40px;
+    background-size: 100% 100%;
+    border-radius: 25%;
 }
 
 .menuCloser {
@@ -76,6 +88,11 @@ a:active {
     top: 20px;
     right: 20px;
     cursor: pointer;
+}
+
+.expandIcon {
+    min-width: 40px;
+    text-align: center;
 }
 
 .rotatable {
