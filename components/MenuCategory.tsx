@@ -14,10 +14,6 @@ export default function MenuCategory(props: { category: ICategory, openedCategor
             <div className={"category" + (!isOpened ? " hidden" : "")}>
                 <div>
                     {props.category.pages.map((page: IPage) => {
-                        if(page.icon) {
-                            console.log(page.icon);
-                        }
-
                         const innerElement: JSX.Element = (
                             <>
                                 {page.icon ? <div className="icon" style={{ backgroundImage: 'url("' + page.icon + '")' }} /> : <span />}
