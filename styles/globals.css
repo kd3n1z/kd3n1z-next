@@ -26,6 +26,18 @@ a:active {
     opacity: 0.5;
 }
 
+.links > a {
+    text-decoration: none;
+}
+
+.language-icon {
+    width: 1.15em;
+    vertical-align: bottom;
+    transform: translate(0px, -3px);
+    filter: brightness(0) invert(1);
+    margin-right: 4px;
+}
+
 .page {
     position: fixed;
     top: 50%;
@@ -280,7 +292,7 @@ a:active {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 960px) {
     .optional {
         display: none;
     }

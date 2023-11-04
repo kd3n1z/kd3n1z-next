@@ -6,7 +6,7 @@ export default function Home() {
         <>
             <Layout title='home'>
                 <div className='row'>
-                    <div className='avatar'/>
+                    <div className='avatar' />
                     <div className='content'>
                         <div className='logo'>
                             {'Denis Komarkov'.split('').map((letter, index) => {
@@ -19,10 +19,10 @@ export default function Home() {
                             })}
                         </div>
                         <div className='links'>
-                            <a className='icon fa-brands fa-telegram' href='https://t.me/k_d3n1z'/>
-                            <a className='icon fa-brands fa-github' href='https://github.com/KD3n1z/'/>
-                            <a className='icon fa-solid fa-mug-hot' href='https://www.buymeacoffee.com/kd3n1z'/>
-                            <a className='icon fa-brands fa-steam' href='https://steamcommunity.com/id/k_d3n1z/'/>
+                            <a className='icon fa-brands fa-telegram' href='https://t.me/k_d3n1z' />
+                            <a className='icon fa-brands fa-github' href='https://github.com/KD3n1z/' />
+                            <a className='icon fa-solid fa-mug-hot' href='https://www.buymeacoffee.com/kd3n1z' />
+                            <a className='icon fa-brands fa-steam' href='https://steamcommunity.com/id/k_d3n1z/' />
                         </div>
                     </div>
                 </div>

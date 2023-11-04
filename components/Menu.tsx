@@ -49,7 +49,7 @@ export default function Menu(props: { opened: boolean, setOpenState: React.Dispa
             <div className={'menu' + (props.opened ? '' : ' hidden')}>
                 <MenuCloseButton rotated={props.opened} setOpened={props.setOpenState} action={false} icon="fa-solid fa-xmark" />
                 <Link href='/' className="menuButton" onClick={() => { props.setOpenState(false) }}><>
-                    <span/>
+                    <span />
                     <span>Home</span>
                 </></Link>
                 {repos?.categories.map((category: ICategory) => {

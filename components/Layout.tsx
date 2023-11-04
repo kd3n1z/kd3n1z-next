@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
 
-export default function Layout(props: {title?: string, children?: string | JSX.Element | JSX.Element[]}) {
+export default function Layout(props: { title?: string, children?: string | JSX.Element | JSX.Element[] }) {
     return (
         <>
             <Head>
@@ -10,10 +10,10 @@ export default function Layout(props: {title?: string, children?: string | JSX.E
             </Head>
             <main className='page'>
                 <motion.div
-                initial={{opacity: 0}}
-                animate={{opacity: 1}}
-                exit={{opacity: 0}}
-                transition={{ type: "tween", duration: .3 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ type: "tween", duration: .3 }}
                 >
                     {props.children}
                 </motion.div>

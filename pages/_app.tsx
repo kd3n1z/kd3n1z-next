@@ -8,12 +8,12 @@ import { useEffect, useState } from 'react';
 export default function App({ Component, pageProps, router }: AppProps) {
     const [loading, setLoading] = useState(false);
     const [menuOpened, setMenuOpened] = useState(false);
-    
+
     useEffect(() => {
         const start = () => {
             setLoading(true);
         }
-        
+
         const end = () => {
             setLoading(false);
         }
@@ -28,12 +28,12 @@ export default function App({ Component, pageProps, router }: AppProps) {
             Router.events.off("routeChangeError", end);
         }
     }, [])
-  
+
     return (
         <>
-            <Menu opened={menuOpened} setOpenState={setMenuOpened}/>
+            <Menu opened={menuOpened} setOpenState={setMenuOpened} />
             <AnimatePresence mode='wait' initial={false}>
-                {loading ? '' : <Component {...pageProps} key={router.asPath}/>}
+                {loading ? '' : <Component {...pageProps} key={router.asPath} />}
             </AnimatePresence>
         </>
     );

@@ -32,6 +32,13 @@ const Page: NextPage<Props> = function ({ data, rdata, qname }) {
         }
     }, [rdata]);
 
+    const langFormatted: string = data.language.toLowerCase().replaceAll("+", "plus").replaceAll("#", "sharp");
+
+    // overwrites
+    const iconFileName = {
+        "go": "go-original-wordmark.svg"
+    }[langFormatted] ?? langFormatted + "-plain.svg";
+
     return (
         <Layout title={qname}>
             <div className='content app'>
@@ -54,11 +61,13 @@ const Page: NextPage<Props> = function ({ data, rdata, qname }) {
                             </div>
                             <a className="download" href={downloadLink}>Download {extension} <span className="nowrap">({rdata.name.toLowerCase()})</span></a>
                             <div className="links appInfo">
-                                <a href={'https://github.com/KD3n1z/' + data.name + '/releases'}>releases</a>
-                                <span>&nbsp;/&nbsp;</span>
-                                <a href={'https://github.com/KD3n1z/' + data.name + '/blob/' + data.default_branch + '/LICENSE'}>{data.license.key.toUpperCase()} license</a>
-                                <span className="optional">&nbsp;/&nbsp;</span>
-                                <a className="optional" href={'https://github.com/KD3n1z/' + data.name}>made with {data.language}</a>
+                                <a href={'https://github.com/KD3n1z/' + data.name + '/releases'}><i className="fa-solid fa-download" />&nbsp;&nbsp;releases</a>
+                                <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                <a href={'https://github.com/KD3n1z/' + data.name + '/blob/' + data.default_branch + '/LICENSE'}><i className="fa-solid fa-file" />&nbsp;&nbsp;{data.license.key.toUpperCase()} license</a>
+                                <span className="optional">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                <a className="optional" href={'https://github.com/KD3n1z/' + data.name}>
+                                    <img className="language-icon" src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/" + langFormatted + "/" + iconFileName} />&nbsp;made with {data.language}
+                                </a>
                             </div>
                         </>
                     )
