@@ -23,17 +23,6 @@
                     "name": "gitwatcher"
                 }
             ]
-        },
-        {
-            "name": "Bots",
-            "pages": [
-                {
-                    "type": "link",
-                    "name": "flibusta-downloader",
-                    "link": "https://t.me/flibustadownloadbot",
-                    "icon": "https://raw.githubusercontent.com/kd3n1z/flibusta-downloader/master/images/logo.png"
-                }
-            ]
         }
     ]
 }
